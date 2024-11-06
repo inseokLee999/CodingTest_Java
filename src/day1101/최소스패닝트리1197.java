@@ -50,18 +50,15 @@ public class 최소스패닝트리1197 {
         for (int i = 1; i <= V; i++) {
             unionFind[i] = i;
         }
+        long answer = 0;
         for (Edge e : A) {
             int start = e.start;
             int end = e.end;
             long weight = e.weight;
             if(find(start)!=find(end)){
                 union(start,end);
-                selected.add(e);
+                answer+=weight;
             }
-        }
-        long answer = 0;
-        for(Edge e:selected){
-            answer+=e.weight;
         }
         System.out.println(answer);
     }
